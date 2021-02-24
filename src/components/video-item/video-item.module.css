@@ -16,9 +16,15 @@
   height: 100%;
   display: flex;
   align-items: center;
-  border: 1px solid lightgray;
-  box-shadow: 3px 3px 5px 0px rgba(191, 191, 191, 0.53);
+  /* box-shadow: 3px 3px 5px 0px rgba(191, 191, 191, 0.53); */
   cursor: pointer;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.05)
+  );
+  border-radius: 0.2rem;
+  backdrop-filter: blur(2rem);
   transition: transform 250ms ease-in;
 }
 
@@ -38,7 +44,7 @@
 .title,
 .channel {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .channel {
