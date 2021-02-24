@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, memo } from 'react';
 import styles from './search-header.module.css';
 
 const SearchHeader = ({ onSearch, onPopular }) => {
@@ -18,7 +18,6 @@ const SearchHeader = ({ onSearch, onPopular }) => {
   const goHome = () => {
     onPopular();
   };
-
   return (
     <header className={styles.header}>
       <div className={styles.logo} onClick={goHome}>
@@ -43,4 +42,4 @@ const SearchHeader = ({ onSearch, onPopular }) => {
   );
 };
 
-export default SearchHeader;
+export default memo(SearchHeader);

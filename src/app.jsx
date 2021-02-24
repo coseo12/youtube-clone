@@ -13,24 +13,26 @@ function App({ youtube }) {
   };
 
   const search = useCallback(
-    query => {
-      youtube
-        .search(query)
-        .then(items => {
-          setVideos(items);
-          setSelectedVideo(null);
-        })
-        .catch(error => console.log('error', error));
+    async query => {
+      try {
+        const items = await youtube.search(query);
+        setVideos(items);
+        setSelectedVideo(null);
+      } catch (error) {
+        console.log('error', error);
+      }
     },
     [youtube]
   );
 
-  const popular = useCallback(() => {
+  const popular = useCallback(async () => {
     setSelectedVideo(null);
-    youtube
-      .mostPopular()
-      .then(items => setVideos(items))
-      .catch(error => console.log('error', error));
+    try {
+      const items = await youtube.mostPopular();
+      setVideos(items);
+    } catch (error) {
+      console.log('error', error);
+    }
   }, [youtube]);
 
   useEffect(() => {
