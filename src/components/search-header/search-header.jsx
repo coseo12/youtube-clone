@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styles from './search-header.module.css';
 
-const SearchHeader = ({ onSearch }) => {
+const SearchHeader = ({ onSearch, onPopular }) => {
   const inputRef = useRef();
   const handleSearch = () => {
     const value = inputRef.current.value;
@@ -15,10 +15,13 @@ const SearchHeader = ({ onSearch }) => {
   const onClick = event => {
     handleSearch();
   };
+  const goHome = () => {
+    onPopular();
+  };
 
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
+      <div className={styles.logo} onClick={goHome}>
         <img className={styles.img} src="/images/logo.png" alt="logo" />
         <h1 className={styles.title}>Youtube</h1>
       </div>
